@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi primer Vuejs</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+    <div id="app">
+        <usuarios></usuarios>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script>
+        Vue.component("usuarios", {
+            template: `
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">Rut</th>
+                            <th scope="col">Fecha de nacimiento</th>
+                            <th scope="col">Edad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(persona, index) in personas" :key="index">
+                            <th >{{ index }}</th>
+                            <td>{{ persona.nombre }}</td>
+                            <td>{{ persona.apellido }}</td>
+                            <td>{{ persona.rut }}</td> 
+                            <td>{{ persona.fecha_nacimiento }}</td>  
+                            <td>{{ persona.edad }}</td>  
+                        </tr>
+                    </tbody>
+                </table>
+            `,
+            data: () => ({
+                personas: [
+                    {
+                        nombre: "NN1",
+                        apellido: "NN2", 
+                        rut: "24.500-03", 
+                        fecha_nacimiento: "12/12/1987", 
+                        edad: "23"
+                    },
+                    {
+                        nombre: "NN3", 
+                        apellido: "NN4", 
+                        rut: "24.500-03", 
+                        fecha_nacimiento: "12/12/1956", 
+                        edad: "23"
+                    },
+                    {
+                        nombre: "NN5", 
+                        apellido: "NN6", 
+                        rut: "24.500-03", 
+                        fecha_nacimiento: "12/12/1933", 
+                        edad: "23"
+                    },
+                    {
+                        nombre: "NN7", 
+                        apellido: "NN8", 
+                        rut: "24.500-03", 
+                        fecha_nacimiento: "12/12/1968", 
+                        edad: "23"
+                    },
+                ]
+            })
+        })
+
+        new Vue({
+            el: "#app"
+        });
+    </script>
+</body>
+</html>
